@@ -1,69 +1,35 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Start a campus — True North K-12</title>
-<meta name="description" content="Tell True North K-12 about the school you are trying to open.">
-<meta name="robots" content="noindex">
+<title>Contact | True North K-12</title>
+<meta name="description" content="Tell True North K-12 about the school you are trying to open. Site, financing, design or the whole campus, we will tell you what it takes and what it costs.">
+<link rel="canonical" href="https://powered-by-elevate.github.io/TNK12-web/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="True North K-12">
+<meta property="og:title" content="Contact | True North K-12">
+<meta property="og:description" content="Bring the site, the financing question, or nothing but a charter and a target opening date.">
+<meta property="og:url" content="https://powered-by-elevate.github.io/TNK12-web/contact.html">
+<meta property="og:image" content="https://powered-by-elevate.github.io/TNK12-web/assets/campus-woodruff.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/tnk12-shield.png">
+<link rel="apple-touch-icon" href="assets/tnk12-shield.png">
+<meta name="theme-color" content="#0A63DA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap">
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Roboto+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
 <style>
-  /* True North K-12 inquiry page. Same brand kit, light mode only. */
-  :root {
-    --cobalt: #0A63DA; --cobalt-deep: #054EAD; --cobalt-dark: #073A80;
-    --cobalt-lift: #3D8BF0; --cobalt-wash: #EAF1FD;
-    --ink: #343434; --ink-soft: #5B6068; --ink-faint: #8A9099;
-    --ground: #FFFFFF; --ground-alt: #F6F5F4; --paper: #F6F6F6;
-    --rule: #E4E3E1; --rule-soft: #EFEEEC;
-    --face: "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
-    --mono: "Roboto Mono", "SF Mono", Consolas, monospace;
-    --shell: 1120px;
-  }
-  *, *::before, *::after { box-sizing: border-box; }
-  body { margin: 0; background: var(--ground-alt); color: var(--ink); font-family: var(--face);
-         font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-  h1, h2 { margin: 0; letter-spacing: -0.028em; text-wrap: balance; }
-  p { margin: 0; }
-  img { max-width: 100%; display: block; }
-  a { color: var(--cobalt); text-underline-offset: 3px; }
-  :focus-visible { outline: 2px solid var(--cobalt-lift); outline-offset: 3px; border-radius: 4px; }
+  /* Inquiry form. Chrome comes from site.css; this is the form itself. */
+  body { background: var(--ground-alt); }
 
-  .shell { width: 100%; max-width: var(--shell); margin-inline: auto; padding-inline: clamp(20px, 5vw, 56px); }
-  .eyebrow { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .18em;
-             text-transform: uppercase; color: rgba(255,255,255,.8); }
-
-  /* masthead + banner */
-  .top { background: var(--cobalt); color: #FFFFFF; position: relative; overflow: hidden; }
-  .top::after {
-    content: ""; position: absolute; inset: 0; opacity: .15;
-    background-image: linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px);
-    background-size: 88px 88px;
-    mask-image: radial-gradient(100% 90% at 55% 15%, #000 20%, transparent 78%);
-  }
-  .top .shell { position: relative; z-index: 1; }
-  .bar { display: flex; align-items: center; gap: 18px; min-height: 88px; }
-  .lockup { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #FFFFFF; }
-  .lockup img { width: 44px; height: 44px; flex: none; }
-  .lockup b { display: block; font-size: 15px; font-weight: 700; letter-spacing: .14em; line-height: 1.1; }
-  .lockup i { display: block; font-style: normal; font-family: var(--mono); font-size: 10.5px;
-              letter-spacing: .2em; color: rgba(255,255,255,.72); }
-  .back { margin-left: auto; color: #FFFFFF; text-decoration: none; font-size: 14.5px; font-weight: 600;
-          display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 4px; }
-  .back:hover { text-decoration: underline; }
-  .back svg { width: 15px; height: 15px; }
-
-  .banner { padding: clamp(34px, 5vw, 58px) 0 clamp(52px, 7vw, 86px); }
-  .banner h1 { margin-top: 20px; font-size: clamp(34px, 5.2vw, 62px); font-weight: 800; line-height: 1.02; max-width: 16ch; }
-  .banner p { margin-top: 22px; max-width: 56ch; font-size: clamp(16.5px, 1.4vw, 19px); color: rgba(255,255,255,.9); }
-
-  /* form card */
   .wrap { padding: 0 0 clamp(60px, 8vw, 104px); }
-  .card { background: var(--ground); border: 1px solid var(--rule-soft); border-radius: 20px;
-          padding: clamp(28px, 4vw, 52px); margin-top: clamp(-46px, -4vw, -34px);
-          box-shadow: 0 1px 2px rgba(10,99,218,.05), 0 20px 46px rgba(8,33,63,.1); position: relative; z-index: 2; }
+  .wrap .shell { max-width: 1120px; }
+  .card {
+    background: var(--ground); border: 1px solid var(--rule-soft); border-radius: 20px;
+    padding: clamp(28px, 4vw, 52px); margin-top: clamp(-46px, -4vw, -34px);
+    box-shadow: 0 1px 2px rgba(10,99,218,.05), 0 20px 46px rgba(8,33,63,.1);
+    position: relative; z-index: 2;
+  }
 
   .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px 26px; }
   @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
@@ -77,62 +43,80 @@
     padding: 13px 15px; transition: border-color .16s ease, box-shadow .16s ease;
   }
   .field textarea { min-height: 132px; resize: vertical; line-height: 1.55; }
-  .field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235B6068' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-                  background-repeat: no-repeat; background-position: right 14px center; background-size: 17px; padding-right: 42px; }
+  .field select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235B6068' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 14px center; background-size: 17px; padding-right: 42px;
+  }
   .field input:focus, .field select:focus, .field textarea:focus {
-    outline: none; border-color: var(--cobalt); box-shadow: 0 0 0 3px var(--cobalt-wash); }
+    outline: none; border-color: var(--cobalt); box-shadow: 0 0 0 3px var(--cobalt-wash);
+  }
   .field input:user-invalid, .field textarea:user-invalid { border-color: #B3261E; }
 
   .actions { margin-top: 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 18px 22px; }
-  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; border: 0; border-radius: 999px;
-         font-family: var(--face); font-size: 15.5px; font-weight: 600; cursor: pointer;
-         background: var(--cobalt); color: #FFFFFF; box-shadow: 0 10px 28px rgba(10,99,218,.26);
-         transition: transform .18s ease, background .18s ease; text-decoration: none; }
-  .btn:hover { transform: translateY(-2px); background: var(--cobalt-deep); }
-  .btn svg { width: 16px; height: 16px; }
+  .actions .btn {
+    border: 0; cursor: pointer; padding: 16px 32px; font-size: 15.5px;
+    font-family: var(--face); background: var(--cobalt); color: #FFFFFF;
+    box-shadow: 0 10px 28px rgba(10,99,218,.26);
+  }
+  .actions .btn:hover { background: var(--cobalt-deep); }
   .note { font-size: 13.5px; color: var(--ink-soft); max-width: 46ch; }
 
-  .said { margin-top: 26px; padding: 20px 22px; border-radius: 13px; background: var(--cobalt-wash);
-          border: 1px solid #CFE0FA; font-size: 15px; color: var(--cobalt-dark); }
+  .said {
+    margin-top: 26px; padding: 20px 22px; border-radius: 13px; background: var(--cobalt-wash);
+    border: 1px solid #CFE0FA; font-size: 15px; color: var(--cobalt-dark);
+  }
   .said b { display: block; margin-bottom: 5px; font-size: 15.5px; }
   .said a { color: var(--cobalt-deep); }
 
-  .foot { background: var(--ink); color: var(--paper); padding: 44px 0 36px; }
-  .foot__row { display: flex; flex-wrap: wrap; gap: 24px 56px; justify-content: space-between; align-items: flex-start; }
-  .foot .lockup i { color: rgba(246,246,246,.6); }
-  .foot address { font-style: normal; font-size: 15px; line-height: 1.8; color: rgba(246,246,246,.72); }
-  .foot__legal { margin-top: 32px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.13);
-                 font-size: 13px; color: rgba(246,246,246,.55); }
+  /* the page header sits tighter here so the card can overlap it */
+  .pagehead { padding-bottom: clamp(72px, 9vw, 116px); }
 </style>
 
-<header class="top">
-  <div class="shell">
-    <div class="bar">
-      <a class="lockup" href="index.html" aria-label="True North K-12, home">
-        <img src="assets/tnk12-shield-white.png" alt="" width="44" height="44">
-        <span>
-          <b>TRUE NORTH</b>
-          <i>K-12 &middot; ESTD. 2024</i>
-        </span>
-      </a>
-      <a class="back" href="index.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
-        Back to the site
-      </a>
-    </div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="shell masthead__row">
+    <a class="lockup" href="index.html" aria-label="True North K-12, home">
+      <img src="assets/tnk12-shield-white.png" alt="" width="46" height="46">
+      <span>
+        <b>TRUE NORTH</b>
+        <span>K-12 &middot; ESTD. 2024</span>
+      </span>
+    </a>
+
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+      <svg class="ico-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="ico-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+
+    <nav class="nav" id="nav" aria-label="Primary">
+      <ul class="nav__links">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="campuses.html">Campuses</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <a class="btn btn--on-cobalt" href="contact.html">Start a campus</a>
+    </nav>
   </div>
-  <div class="shell banner">
+</header>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<section class="pagehead">
+  <div class="shell">
     <p class="eyebrow">Start a campus</p>
-    <h1>Tell us about the school you are trying to open.</h1>
-    <p>
+    <h1>Tell us about the school<br>you are trying <em>to open.</em></h1>
+    <p class="lede">
       Bring the site you are looking at, the financing question you are stuck on, or nothing but a
       charter and a target opening date. Fill this in and we will come back to you with what the
       campus takes and what it costs.
     </p>
+    <p class="crumbs"><a href="index.html">Home</a> &nbsp;/&nbsp; Contact</p>
   </div>
-</header>
+</section>
 
-<main class="wrap">
+<main class="wrap" id="main">
   <div class="shell">
     <div class="card">
       <form id="inquiry" novalidate>
@@ -208,28 +192,72 @@
 </main>
 
 <footer class="foot">
-  <div class="shell foot__row">
-    <a class="lockup" href="index.html" aria-label="True North K-12, home">
-      <img src="assets/tnk12-shield-white.png" alt="" width="42" height="42">
-      <span>
-        <b>TRUE NORTH</b>
-        <i>K-12 &middot; ESTD. 2024</i>
-      </span>
-    </a>
-    <address>
-      735 E. Main St., 1st Floor<br>
-      Spartanburg, SC 29302
-    </address>
-  </div>
   <div class="shell">
-    <p class="foot__legal">&copy; 2026 True North K-12, a True North Companies brand. All rights reserved.</p>
+    <div class="foot__grid">
+      <div>
+        <a class="lockup" href="index.html" aria-label="True North K-12, home">
+          <img src="assets/tnk12-shield-white.png" alt="" width="44" height="44">
+          <span>
+            <b>TRUE NORTH</b>
+            <span>K-12 &middot; ESTD. 2024</span>
+          </span>
+        </a>
+        <p class="foot__blurb">
+          The education-focused development branch of True North Companies. Site through
+          certificate of occupancy for charter boards and education partners across the Southeast.
+        </p>
+      </div>
+
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="campuses.html">Campuses</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#development">Development services</a></li>
+          <li><a href="services.html#site">Site selection</a></li>
+          <li><a href="services.html#finance">Facility finance</a></li>
+          <li><a href="services.html#design">Design &amp; build</a></li>
+          <li><a href="services.html#occupancy">Lease or purchase</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Get in touch</h4>
+        <address>
+          735 E. Main St., 1st Floor<br>
+          Spartanburg, SC 29302<br>
+          <a href="contact.html">Start a conversation</a>
+        </address>
+      </div>
+    </div>
+
+    <div class="foot__legal">
+      <span>&copy; 2026 True North K-12, a True North Companies brand. All rights reserved.</span>
+      <span class="foot__brandline">Southeast-Based &middot; Student-Focused &middot; Built for the Future</span>
+    </div>
   </div>
 </footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+  <span>Top</span>
+</button>
+
+<script src="assets/site.js"></script>
 
 <script>
 (function () {
   // ---- Where inquiries go. Change this one line to reroute the form. ----
-  var INBOX = "cgill@true-north-companies.com";
+  var INBOX = "WRoach@true-north-companies.com";
 
   var form = document.getElementById("inquiry");
   var said = document.getElementById("said");

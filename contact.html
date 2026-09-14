@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start a campus — True North K-12</title>
+<meta name="description" content="Tell True North K-12 about the school you are trying to open.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="assets/tnk12-shield.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap">
+
+<style>
+  /* True North K-12 inquiry page. Same brand kit, light mode only. */
+  :root {
+    --cobalt: #0A63DA; --cobalt-deep: #054EAD; --cobalt-dark: #073A80;
+    --cobalt-lift: #3D8BF0; --cobalt-wash: #EAF1FD;
+    --ink: #343434; --ink-soft: #5B6068; --ink-faint: #8A9099;
+    --ground: #FFFFFF; --ground-alt: #F6F5F4; --paper: #F6F6F6;
+    --rule: #E4E3E1; --rule-soft: #EFEEEC;
+    --face: "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono: "Roboto Mono", "SF Mono", Consolas, monospace;
+    --shell: 1120px;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground-alt); color: var(--ink); font-family: var(--face);
+         font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  h1, h2 { margin: 0; letter-spacing: -0.028em; text-wrap: balance; }
+  p { margin: 0; }
+  img { max-width: 100%; display: block; }
+  a { color: var(--cobalt); text-underline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--cobalt-lift); outline-offset: 3px; border-radius: 4px; }
+
+  .shell { width: 100%; max-width: var(--shell); margin-inline: auto; padding-inline: clamp(20px, 5vw, 56px); }
+  .eyebrow { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .18em;
+             text-transform: uppercase; color: rgba(255,255,255,.8); }
+
+  /* masthead + banner */
+  .top { background: var(--cobalt); color: #FFFFFF; position: relative; overflow: hidden; }
+  .top::after {
+    content: ""; position: absolute; inset: 0; opacity: .15;
+    background-image: linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px);
+    background-size: 88px 88px;
+    mask-image: radial-gradient(100% 90% at 55% 15%, #000 20%, transparent 78%);
+  }
+  .top .shell { position: relative; z-index: 1; }
+  .bar { display: flex; align-items: center; gap: 18px; min-height: 88px; }
+  .lockup { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #FFFFFF; }
+  .lockup img { width: 44px; height: 44px; flex: none; }
+  .lockup b { display: block; font-size: 15px; font-weight: 700; letter-spacing: .14em; line-height: 1.1; }
+  .lockup i { display: block; font-style: normal; font-family: var(--mono); font-size: 10.5px;
+              letter-spacing: .2em; color: rgba(255,255,255,.72); }
+  .back { margin-left: auto; color: #FFFFFF; text-decoration: none; font-size: 14.5px; font-weight: 600;
+          display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 4px; }
+  .back:hover { text-decoration: underline; }
+  .back svg { width: 15px; height: 15px; }
+
+  .banner { padding: clamp(34px, 5vw, 58px) 0 clamp(52px, 7vw, 86px); }
+  .banner h1 { margin-top: 20px; font-size: clamp(34px, 5.2vw, 62px); font-weight: 800; line-height: 1.02; max-width: 16ch; }
+  .banner p { margin-top: 22px; max-width: 56ch; font-size: clamp(16.5px, 1.4vw, 19px); color: rgba(255,255,255,.9); }
+
+  /* form card */
+  .wrap { padding: 0 0 clamp(60px, 8vw, 104px); }
+  .card { background: var(--ground); border: 1px solid var(--rule-soft); border-radius: 20px;
+          padding: clamp(28px, 4vw, 52px); margin-top: clamp(-46px, -4vw, -34px);
+          box-shadow: 0 1px 2px rgba(10,99,218,.05), 0 20px 46px rgba(8,33,63,.1); position: relative; z-index: 2; }
+
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px 26px; }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+  .full { grid-column: 1 / -1; }
+
+  .field label { display: block; font-size: 13px; font-weight: 600; letter-spacing: .02em; margin-bottom: 8px; }
+  .field .opt { color: var(--ink-faint); font-weight: 400; }
+  .field input, .field select, .field textarea {
+    width: 100%; font-family: var(--face); font-size: 16px; color: var(--ink);
+    background: var(--ground); border: 1px solid var(--rule); border-radius: 11px;
+    padding: 13px 15px; transition: border-color .16s ease, box-shadow .16s ease;
+  }
+  .field textarea { min-height: 132px; resize: vertical; line-height: 1.55; }
+  .field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235B6068' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+                  background-repeat: no-repeat; background-position: right 14px center; background-size: 17px; padding-right: 42px; }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none; border-color: var(--cobalt); box-shadow: 0 0 0 3px var(--cobalt-wash); }
+  .field input:user-invalid, .field textarea:user-invalid { border-color: #B3261E; }
+
+  .actions { margin-top: 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 18px 22px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; border: 0; border-radius: 999px;
+         font-family: var(--face); font-size: 15.5px; font-weight: 600; cursor: pointer;
+         background: var(--cobalt); color: #FFFFFF; box-shadow: 0 10px 28px rgba(10,99,218,.26);
+         transition: transform .18s ease, background .18s ease; text-decoration: none; }
+  .btn:hover { transform: translateY(-2px); background: var(--cobalt-deep); }
+  .btn svg { width: 16px; height: 16px; }
+  .note { font-size: 13.5px; color: var(--ink-soft); max-width: 46ch; }
+
+  .said { margin-top: 26px; padding: 20px 22px; border-radius: 13px; background: var(--cobalt-wash);
+          border: 1px solid #CFE0FA; font-size: 15px; color: var(--cobalt-dark); }
+  .said b { display: block; margin-bottom: 5px; font-size: 15.5px; }
+  .said a { color: var(--cobalt-deep); }
+
+  .foot { background: var(--ink); color: var(--paper); padding: 44px 0 36px; }
+  .foot__row { display: flex; flex-wrap: wrap; gap: 24px 56px; justify-content: space-between; align-items: flex-start; }
+  .foot .lockup i { color: rgba(246,246,246,.6); }
+  .foot address { font-style: normal; font-size: 15px; line-height: 1.8; color: rgba(246,246,246,.72); }
+  .foot__legal { margin-top: 32px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.13);
+                 font-size: 13px; color: rgba(246,246,246,.55); }
+</style>
+
+<header class="top">
+  <div class="shell">
+    <div class="bar">
+      <a class="lockup" href="index.html" aria-label="True North K-12, home">
+        <img src="assets/tnk12-shield-white.png" alt="" width="44" height="44">
+        <span>
+          <b>TRUE NORTH</b>
+          <i>K-12 &middot; ESTD. 2024</i>
+        </span>
+      </a>
+      <a class="back" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Back to the site
+      </a>
+    </div>
+  </div>
+  <div class="shell banner">
+    <p class="eyebrow">Start a campus</p>
+    <h1>Tell us about the school you are trying to open.</h1>
+    <p>
+      Bring the site you are looking at, the financing question you are stuck on, or nothing but a
+      charter and a target opening date. Fill this in and we will come back to you with what the
+      campus takes and what it costs.
+    </p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="shell">
+    <div class="card">
+      <form id="inquiry" novalidate>
+        <div class="grid">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="role">Your role <span class="opt">(optional)</span></label>
+            <input id="role" name="role" type="text" placeholder="Board chair, founder, principal" autocomplete="organization-title">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone <span class="opt">(optional)</span></label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="school">School or organization</label>
+            <input id="school" name="school" type="text" autocomplete="organization" required>
+          </div>
+          <div class="field">
+            <label for="place">City and state</label>
+            <input id="place" name="place" type="text" placeholder="Spartanburg, SC" required>
+          </div>
+          <div class="field">
+            <label for="stage">Where the project stands</label>
+            <select id="stage" name="stage" required>
+              <option value="">Choose one</option>
+              <option>Still exploring</option>
+              <option>Charter application in progress</option>
+              <option>Charter approved</option>
+              <option>Site identified</option>
+              <option>Site under contract</option>
+              <option>In design</option>
+              <option>Under construction</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="opening">Target opening <span class="opt">(optional)</span></label>
+            <input id="opening" name="opening" type="text" placeholder="August 2028">
+          </div>
+          <div class="field full">
+            <label for="help">What do you need help with? <span class="opt">(optional)</span></label>
+            <input id="help" name="help" type="text" placeholder="Site selection, facility finance, design and build, lease or purchase">
+          </div>
+          <div class="field full">
+            <label for="message">Anything else we should know</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn" type="submit">
+            Send inquiry
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </button>
+          <p class="note">This opens your email app with the details filled in, so you can see exactly what is sent before it goes.</p>
+        </div>
+
+        <div class="said" id="said" hidden>
+          <b>Your email app should have opened.</b>
+          If nothing happened, send the same details straight to
+          <a id="fallback" href="#">our inbox</a> and we will pick it up from there.
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="shell foot__row">
+    <a class="lockup" href="index.html" aria-label="True North K-12, home">
+      <img src="assets/tnk12-shield-white.png" alt="" width="42" height="42">
+      <span>
+        <b>TRUE NORTH</b>
+        <i>K-12 &middot; ESTD. 2024</i>
+      </span>
+    </a>
+    <address>
+      735 E. Main St., 1st Floor<br>
+      Spartanburg, SC 29302
+    </address>
+  </div>
+  <div class="shell">
+    <p class="foot__legal">&copy; 2026 True North K-12, a True North Companies brand. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // ---- Where inquiries go. Change this one line to reroute the form. ----
+  var INBOX = "cgill@true-north-companies.com";
+
+  var form = document.getElementById("inquiry");
+  var said = document.getElementById("said");
+  var fallback = document.getElementById("fallback");
+  if (!form) return;
+
+  function val(id) {
+    var el = document.getElementById(id);
+    return el && el.value ? el.value.trim() : "";
+  }
+
+  function compose() {
+    var rows = [
+      ["Name", val("name")],
+      ["Role", val("role")],
+      ["Email", val("email")],
+      ["Phone", val("phone")],
+      ["School or organization", val("school")],
+      ["City and state", val("place")],
+      ["Where the project stands", val("stage")],
+      ["Target opening", val("opening")],
+      ["Needs help with", val("help")]
+    ].filter(function (r) { return r[1]; });
+
+    var body = "";
+    rows.forEach(function (r) { body += r[0] + ": " + r[1] + "\n"; });
+    body += "\n" + val("message") + "\n";
+
+    var subject = "Campus inquiry: " + (val("school") || val("name") || "True North K-12");
+    return "mailto:" + INBOX +
+           "?subject=" + encodeURIComponent(subject) +
+           "&body=" + encodeURIComponent(body);
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      var bad = form.querySelector(":invalid");
+      if (bad) bad.focus();
+      return;
+    }
+    var href = compose();
+    if (fallback) fallback.setAttribute("href", href);
+    if (said) said.hidden = false;
+    window.location.href = href;
+  });
+})();
+</script>

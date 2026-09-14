@@ -25,6 +25,26 @@ reverse until that file can be added directly.
 is set in **Inter** with **Roboto Mono** for the small caps labels. A matched substitution,
 not the licensed face. Swap it once the real font name is confirmed.
 
+## Inquiry page
+
+`contact.html` is reachable only from the call-to-action buttons, never from navigation, and
+carries `<meta name="robots" content="noindex">`. It has no backend: submitting composes a
+structured `mailto:` so the sender sees exactly what goes out.
+
+**To reroute inquiries, change one line** at the top of that page's script:
+
+```js
+var INBOX = "cgill@true-north-companies.com";
+```
+
+Cameron is the default because he is the contact printed on TNK12's own portfolio. If these
+should go to Bill Roach instead, put his True North address there. It was deliberately not
+guessed from the naming pattern.
+
+A `mailto:` form needs a mail client on the visitor's device. If that becomes a problem, the
+upgrade is a hosted form endpoint (Formspree and similar have free tiers) pointed at the same
+address, which turns the form into a real POST and adds spam filtering.
+
 ## Images
 
 Campus photography and the two headshots are real. The campus images were recovered from the

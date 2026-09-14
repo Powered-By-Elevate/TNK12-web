@@ -220,25 +220,32 @@
   .served li span { color: var(--ink-faint); }
 
   /* team */
-  .team-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(16px, 2vw, 30px); }
-  @media (max-width: 1080px) { .team-grid { grid-template-columns: repeat(3, 1fr); } }
+  .team-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(16px, 2vw, 30px); }
+  /* 6 people, so the row must break to a divisor of 6 or the last row orphans.
+     The 6-up band ends at 1280 rather than 1080: below that the discs fall under
+     ~170px, and the previous 5-up layout never went below ~213px. */
+  @media (max-width: 1280px) { .team-grid { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 600px)  { .team-grid { grid-template-columns: repeat(2, 1fr); } }
   .who { text-align: center; }
   .who__disc { width: 100%; aspect-ratio: 1; border-radius: 50%; overflow: hidden; background: var(--cobalt-wash); position: relative; }
   .who__disc img { width: 100%; height: 100%; object-fit: cover; }
   .who__shot { position: absolute; inset: 0; }
   /* The headshots are framed to each person's height, so the eyeline lands in a
-     different place in every file. Walt and Bill are cropped to a 45% eyeline in
-     the file itself; Amanda's source is already circle-masked, so hers is pulled
-     up here instead. Keep zoom >= 1 + 2*|lift| or a crescent shows at the bottom. */
-  .who__disc--tucker img { transform: scale(1.22) translateY(-7.7%); }
+     different place in every file. Walt, Cameron and Bill are cropped to a 45%
+     eyeline in the file itself. Keep zoom >= 1 + 2*|lift| or a crescent shows at
+     the bottom. */
   .who__disc--roach  img { transform: scale(1.10) translateY(-3.2%); }
-  /* Vicki's source is a circle-masked thumbnail, so its soft mask edge stops a hair
-     inside the disc and the cobalt monogram behind leaks as a thin ring at the rim.
-     A small overfill covers it. Same law as above: zoom >= 1 + 2*|lift|, lift is 0 here.
-     Cameron needed this too until his full-frame photograph arrived; his is now a plain
-     square cropped to the 45% eyeline like Walt and Bill, so it covers the disc on its own. */
-  .who__disc--provenchar img { transform: scale(1.045); }
+  /* Vicki, Tracy and Joseph arrived as circle-masked thumbnails, so each soft mask
+     edge stops a hair inside the disc and the cobalt monogram behind leaks as a thin
+     ring at the rim. A small overfill covers it. Same law as above:
+     zoom >= 1 + 2*|lift|, lift is 0 here. Cameron needed this too until his full-frame
+     photograph arrived; his is now a plain square cropped to the 45% eyeline like Walt
+     and Bill, so it covers the disc on its own. */
+  .who__disc--provenchar img,
+  .who__disc--fawole img { transform: scale(1.045); }
+  /* Tracy's mask sits a touch further inside than the others, so 1.045 still left
+     a few pixels of monogram at her rim. Measured, not guessed. */
+  .who__disc--tracy img { transform: scale(1.07); }
   .who__mono { position: absolute; inset: 0; display: grid; place-items: center;
                background: linear-gradient(150deg, var(--cobalt) 0%, var(--cobalt-dark) 100%);
                color: #FFFFFF; font-size: clamp(26px, 3.2vw, 40px); font-weight: 700; letter-spacing: .04em; }
@@ -670,14 +677,19 @@
           <p>Controller</p>
         </article>
         <article class="who">
-          <div class="who__disc who__disc--tucker"><img src="assets/team-tucker.png" alt="Amanda Tucker" loading="lazy"></div>
-          <h3>Amanda Tucker</h3>
-          <p>Director of Education &amp; Workforce Development</p>
+          <div class="who__disc who__disc--tracy"><div class="who__mono">TG</div><img class="who__shot" src="assets/team-gill-tracy.png" alt="Tracy Gill" loading="lazy" onerror="this.remove()"></div>
+          <h3>Tracy Gill</h3>
+          <p>Chief Connections Officer</p>
         </article>
         <article class="who">
           <div class="who__disc who__disc--roach"><img src="assets/team-roach.png" alt="Dr. Bill Roach" loading="lazy"></div>
           <h3>Dr. Bill Roach</h3>
           <p>Director of School Leadership &amp; Business Development</p>
+        </article>
+        <article class="who">
+          <div class="who__disc who__disc--fawole"><div class="who__mono">JF</div><img class="who__shot" src="assets/team-fawole.png" alt="Joseph Fawole" loading="lazy" onerror="this.remove()"></div>
+          <h3>Joseph Fawole</h3>
+          <p>Chief Operations Officer</p>
         </article>
       </div>
     </div>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 150" role="img" aria-label="True North K-12, established 2024">
+  <g fill="var(--mk-ink, #343434)">
+    <text x="260" y="58" text-anchor="middle" font-family="var(--wordmark-face, Inter, Helvetica, Arial, sans-serif)"
+          font-size="54" font-weight="500" letter-spacing="3.4">TRUE NORTH</text>
+    <text x="52" y="106" font-family="var(--wordmark-face, Inter, Helvetica, Arial, sans-serif)"
+          font-size="19" font-weight="500" letter-spacing="4.6">ESTD.</text>
+    <text x="468" y="106" text-anchor="end" font-family="var(--wordmark-face, Inter, Helvetica, Arial, sans-serif)"
+          font-size="19" font-weight="500" letter-spacing="4.6">2024</text>
+  </g>
+  <!-- the script K-12 that crosses the wordmark's baseline -->
+  <g fill="none" stroke="var(--mk-ink, #343434)" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M196 46 C204 44 208 50 206 62 C203 80 197 96 190 110"/>
+    <path d="M186 84 C202 80 218 68 232 52"/>
+    <path d="M196 80 C206 90 214 100 222 114"/>
+    <path d="M238 82 L268 82"/>
+    <path d="M282 66 C286 58 292 55 297 57 L288 100"/>
+    <path d="M308 66 C310 57 317 52 324 55 C333 59 331 69 324 77 L308 96 L332 96"/>
+  </g>
+</svg>

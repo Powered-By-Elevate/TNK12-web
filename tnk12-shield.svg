@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 224" role="img" aria-label="True North K12">
+  <defs>
+    <path id="sh" d="M10 44 C10 29 22 23 42 21 L58 20 C60 7 65 5 75 5 L125 5 C135 5 140 7 142 20 L158 21 C178 23 190 29 190 44 L190 118 C190 158 150 194 100 216 C50 194 10 158 10 118 Z"/>
+    <clipPath id="field">
+      <use href="#sh" transform="translate(100 105) scale(.796) translate(-100 -105)"/>
+    </clipPath>
+  </defs>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- keyline, body, field -->
+    <use href="#sh" stroke="var(--mk-ink, #0A63DA)" stroke-width="5"/>
+    <use href="#sh" fill="var(--mk-ink, #0A63DA)" transform="translate(100 105) scale(.915) translate(-100 -105)"/>
+    <use href="#sh" fill="var(--mk-paper, #fff)" transform="translate(100 105) scale(.796) translate(-100 -105)"/>
+
+    <g clip-path="url(#field)">
+      <!-- quarterly: I and IV in ink -->
+      <rect x="0" y="0" width="100" height="112" fill="var(--mk-ink, #0A63DA)"/>
+      <rect x="100" y="112" width="100" height="112" fill="var(--mk-ink, #0A63DA)"/>
+
+      <!-- I. the compass that draws the K -->
+      <g stroke="var(--mk-paper, #fff)" stroke-width="4">
+        <path d="M65 50 L65 95"/>
+        <path d="M65 72 L88 50"/>
+        <path d="M65 72 L88 95"/>
+        <circle cx="55" cy="51" r="5.2"/>
+        <path d="M55 45 L55 40"/>
+        <path d="M51 56 L39 79"/>
+        <path d="M59 56 L80 97"/>
+      </g>
+
+      <!-- II. the cap above the open book -->
+      <g stroke="var(--mk-ink, #0A63DA)" stroke-width="3.4">
+        <path d="M135 37 L162 48 L135 59 L108 48 Z" fill="var(--mk-ink, #0A63DA)"/>
+        <path d="M120 54 L120 67 C120 74 150 74 150 67 L150 54"/>
+        <path d="M162 48 L162 65"/>
+        <circle cx="162" cy="68" r="2.8" fill="var(--mk-ink, #0A63DA)"/>
+        <path d="M135 84 L135 106"/>
+        <path d="M135 84 C128 78 118 75 110 76 L110 99 C118 98 128 100 135 106"/>
+        <path d="M135 84 C142 78 152 75 160 76 L160 99 C152 98 142 100 135 106"/>
+        <g stroke-width="2.4">
+          <path d="M116 84 L128 86"/><path d="M116 92 L128 94"/>
+          <path d="M154 84 L142 86"/><path d="M154 92 L142 94"/>
+        </g>
+      </g>
+
+      <!-- III. the olive branch -->
+      <g stroke="var(--mk-ink, #0A63DA)" stroke-width="3.2">
+        <path d="M34 124 C53 136 70 157 82 186"/>
+        <ellipse cx="57" cy="130" rx="13" ry="5.6" transform="rotate(-30 57 130)"/>
+        <ellipse cx="70" cy="146" rx="13" ry="5.6" transform="rotate(-25 70 146)"/>
+        <ellipse cx="82" cy="164" rx="12" ry="5.2" transform="rotate(-20 82 164)"/>
+        <g fill="var(--mk-ink, #0A63DA)" stroke="none">
+          <circle cx="37" cy="137" r="5"/>
+          <circle cx="48" cy="153" r="5"/>
+          <circle cx="60" cy="172" r="5"/>
+        </g>
+      </g>
+
+      <!-- IV. twelve, set on the rise the shield's taper asks for -->
+      <g stroke="var(--mk-paper, #fff)" stroke-width="4.4">
+        <path d="M107 142 C113 131 120 126 127 125 L114 178"/>
+        <path d="M133 133 C136 122 145 117 152 121 C161 125 159 136 151 144 L132 156 L151 156"/>
+      </g>
+    </g>
+  </g>
+</svg>

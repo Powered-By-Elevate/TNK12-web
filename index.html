@@ -264,15 +264,15 @@
   .scroll-cue:hover { color: #FFFFFF; }
   .scroll-cue span {
     width: 26px; height: 42px; border: 1.5px solid rgba(255,255,255,.55); border-radius: 999px;
-    position: relative; flex: none;
+    position: relative; flex: none; overflow: hidden;
   }
-  .scroll-cue span::after {
-    content: ""; position: absolute; left: 50%; top: 9px; width: 3px; height: 8px;
-    margin-left: -1.5px; border-radius: 2px; background: #FFFFFF;
+  .scroll-cue span svg {
+    position: absolute; left: 50%; top: 8px; width: 12px; height: 12px;
+    margin-left: -6px; color: #FFFFFF;
     animation: wheel 1.9s ease-in-out infinite;
   }
-  @keyframes wheel { 0% { opacity: 0; transform: translateY(0); } 22% { opacity: 1; } 70% { opacity: 0; transform: translateY(13px); } 100% { opacity: 0; } }
-  @media (prefers-reduced-motion: reduce) { .scroll-cue span::after { animation: none; } }
+  @keyframes wheel { 0% { opacity: 0; transform: translateY(0); } 22% { opacity: 1; } 70% { opacity: 0; transform: translateY(14px); } 100% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .scroll-cue span svg { animation: none; } }
 
   .to-top {
     position: fixed; right: 22px; bottom: 22px; z-index: 55;
@@ -332,7 +332,7 @@
         <a class="btn btn--wire" href="#campuses">See the campuses</a>
       </div>
       <button class="scroll-cue" id="scrollCue" type="button">
-        <span aria-hidden="true"></span>Scroll to explore
+        <span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>Scroll to explore
       </button>
     </div>
 

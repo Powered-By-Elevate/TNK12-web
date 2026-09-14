@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://powered-by-elevate.github.io/TNK12-web/sitemap.xml

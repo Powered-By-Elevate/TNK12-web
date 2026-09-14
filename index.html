@@ -232,6 +232,12 @@
      the file itself; Amanda's source is already circle-masked, so hers is pulled
      up here instead. Keep zoom >= 1 + 2*|lift| or a crescent shows at the bottom. */
   .who__disc--tucker img { transform: scale(1.22) translateY(-7.7%); }
+  .who__disc--roach  img { transform: scale(1.10) translateY(-3.2%); }
+  /* Cameron and Vicki arrived as circle-masked thumbnails, so their soft mask edge
+     stops a hair inside the disc and the cobalt monogram behind leaks as a thin ring.
+     A small overfill covers it. Same law as above: zoom >= 1 + 2*|lift|, lift is 0 here. */
+  .who__disc--cameron img,
+  .who__disc--provenchar img { transform: scale(1.045); }
   .who__mono { position: absolute; inset: 0; display: grid; place-items: center;
                background: linear-gradient(150deg, var(--cobalt) 0%, var(--cobalt-dark) 100%);
                color: #FFFFFF; font-size: clamp(26px, 3.2vw, 40px); font-weight: 700; letter-spacing: .04em; }
@@ -653,12 +659,12 @@
           <p>Chief Executive Officer</p>
         </article>
         <article class="who">
-          <div class="who__disc"><div class="who__mono">CG</div><img class="who__shot" src="assets/team-gill-cameron.png" alt="Cameron Gill" loading="lazy" onerror="this.remove()"></div>
+          <div class="who__disc who__disc--cameron"><div class="who__mono">CG</div><img class="who__shot" src="assets/team-gill-cameron.png" alt="Cameron Gill" loading="lazy" onerror="this.remove()"></div>
           <h3>Cameron Gill</h3>
           <p>Project Director</p>
         </article>
         <article class="who">
-          <div class="who__disc"><div class="who__mono">VP</div><img class="who__shot" src="assets/team-provenchar.png" alt="Vicki Provenchar" loading="lazy" onerror="this.remove()"></div>
+          <div class="who__disc who__disc--provenchar"><div class="who__mono">VP</div><img class="who__shot" src="assets/team-provenchar.png" alt="Vicki Provenchar" loading="lazy" onerror="this.remove()"></div>
           <h3>Vicki Provenchar</h3>
           <p>Controller</p>
         </article>
@@ -668,7 +674,7 @@
           <p>Director of Education &amp; Workforce Development</p>
         </article>
         <article class="who">
-          <div class="who__disc"><img src="assets/team-roach.png" alt="Dr. Bill Roach" loading="lazy"></div>
+          <div class="who__disc who__disc--roach"><img src="assets/team-roach.png" alt="Dr. Bill Roach" loading="lazy"></div>
           <h3>Dr. Bill Roach</h3>
           <p>Director of School Leadership &amp; Business Development</p>
         </article>

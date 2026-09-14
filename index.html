@@ -226,6 +226,7 @@
   .who { text-align: center; }
   .who__disc { width: 100%; aspect-ratio: 1; border-radius: 50%; overflow: hidden; background: var(--cobalt-wash); position: relative; }
   .who__disc img { width: 100%; height: 100%; object-fit: cover; }
+  .who__shot { position: absolute; inset: 0; }
   .who__mono { position: absolute; inset: 0; display: grid; place-items: center;
                background: linear-gradient(150deg, var(--cobalt) 0%, var(--cobalt-dark) 100%);
                color: #FFFFFF; font-size: clamp(26px, 3.2vw, 40px); font-weight: 700; letter-spacing: .04em; }
@@ -642,17 +643,17 @@
       </div>
       <div class="team-grid">
         <article class="who">
-          <div class="who__disc"><div class="who__mono">WG</div></div>
+          <div class="who__disc"><div class="who__mono">WG</div><img class="who__shot" src="assets/team-gill-walt.png" alt="Walt Gill" loading="lazy" onerror="this.remove()"></div>
           <h3>Walt Gill</h3>
           <p>Chief Executive Officer<br>True North Companies</p>
         </article>
         <article class="who">
-          <div class="who__disc"><div class="who__mono">CG</div></div>
+          <div class="who__disc"><div class="who__mono">CG</div><img class="who__shot" src="assets/team-gill-cameron.png" alt="Cameron Gill" loading="lazy" onerror="this.remove()"></div>
           <h3>Cameron Gill</h3>
           <p>Project Director<br>True North K-12</p>
         </article>
         <article class="who">
-          <div class="who__disc"><div class="who__mono">VP</div></div>
+          <div class="who__disc"><div class="who__mono">VP</div><img class="who__shot" src="assets/team-provenchar.png" alt="Vicki Provenchar" loading="lazy" onerror="this.remove()"></div>
           <h3>Vicki Provenchar</h3>
           <p>Controller<br>True North Companies</p>
         </article>

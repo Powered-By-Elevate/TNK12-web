@@ -235,13 +235,12 @@
      eyeline in the file itself. Keep zoom >= 1 + 2*|lift| or a crescent shows at
      the bottom. */
   .who__disc--roach  img { transform: scale(1.10) translateY(-3.2%); }
-  /* Vicki, Tracy and Joseph arrived as circle-masked thumbnails, so each soft mask
-     edge stops a hair inside the disc and the cobalt monogram behind leaks as a thin
-     ring at the rim. A small overfill covers it. Same law as above:
-     zoom >= 1 + 2*|lift|, lift is 0 here. Cameron needed this too until his full-frame
-     photograph arrived; his is now a plain square cropped to the 45% eyeline like Walt
-     and Bill, so it covers the disc on its own. */
-  .who__disc--provenchar img,
+  /* Tracy and Joseph are circle-masked thumbnails, so each soft mask edge stops a hair
+     inside the disc and the cobalt monogram behind leaks as a thin ring at the rim.
+     A small overfill covers it. Same law as above: zoom >= 1 + 2*|lift|, lift is 0 here.
+     Cameron and Vicki needed this too until their full-frame photographs arrived. Both
+     are now plain squares cropped to the 45% eyeline like Walt and Bill, so each covers
+     the disc on its own. */
   .who__disc--fawole img { transform: scale(1.045); }
   /* Tracy's mask sits a touch further inside than the others, so 1.045 still left
      a few pixels of monogram at her rim. Measured, not guessed. */
@@ -672,7 +671,7 @@
           <p>Project Director</p>
         </article>
         <article class="who">
-          <div class="who__disc who__disc--provenchar"><div class="who__mono">VP</div><img class="who__shot" src="assets/team-provenchar.png" alt="Vicki Provenchar" loading="lazy" onerror="this.remove()"></div>
+          <div class="who__disc"><div class="who__mono">VP</div><img class="who__shot" src="assets/team-provenchar.png" alt="Vicki Provenchar" loading="lazy" onerror="this.remove()"></div>
           <h3>Vicki Provenchar</h3>
           <p>Controller</p>
         </article>

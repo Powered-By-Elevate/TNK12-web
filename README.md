@@ -31,24 +31,19 @@ not the licensed face. Swap it once the real font name is confirmed.
 carries `<meta name="robots" content="noindex">`. It has no backend: submitting composes a
 structured `mailto:` so the sender sees exactly what goes out.
 
-**To reroute inquiries, change the form's `action`** in `contact.html`:
+**To reroute inquiries, change one line** at the top of that page's script:
 
-```html
-<form id="inquiry" action="https://formsubmit.co/info@truenorth-k12.com" method="POST" novalidate>
+```js
+var INBOX = "cgill@true-north-companies.com";
 ```
 
-The form is a real POST to FormSubmit, which forwards to that address. It works with
-JavaScript disabled, because the browser submits natively. With JavaScript on, the page
-intercepts, posts in the background and confirms inline without leaving the page. A hidden
-`_honey` field catches the simplest bots.
+Cameron is the default because he is the contact printed on TNK12's own portfolio. If these
+should go to Bill Roach instead, put his True North address there. It was deliberately not
+guessed from the naming pattern.
 
-WARNING: **FormSubmit needs one activation click before anything is delivered.** The first
-submission sends a confirmation email to `info@truenorth-k12.com`. Until someone opens that
-and clicks the link, inquiries are accepted and silently dropped. Submit the form once
-yourself and clear that email before the site takes real traffic.
-
-The address is visible in page source, which bots scrape. After activation FormSubmit issues
-a random alias that can replace the address in the `action`. Worth doing.
+A `mailto:` form needs a mail client on the visitor's device. If that becomes a problem, the
+upgrade is a hosted form endpoint (Formspree and similar have free tiers) pointed at the same
+address, which turns the form into a real POST and adds spam filtering.
 
 ## Images
 

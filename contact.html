@@ -135,11 +135,7 @@
 <main class="wrap">
   <div class="shell">
     <div class="card">
-      <form id="inquiry" action="https://formsubmit.co/info@truenorth-k12.com" method="POST" novalidate>
-        <input type="hidden" name="_subject" value="Campus inquiry - True North K-12">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <form id="inquiry" novalidate>
         <div class="grid">
           <div class="field">
             <label for="name">Your name</label>
@@ -198,20 +194,13 @@
             Send inquiry
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
           </button>
-          <p class="note">Sent straight to our team. We reply to every inquiry, usually within two business days.</p>
+          <p class="note">This opens your email app with the details filled in, so you can see exactly what is sent before it goes.</p>
         </div>
 
         <div class="said" id="said" hidden>
-          <b>Thank you, your inquiry is on its way.</b>
-          Someone from True North K-12 will be in touch. If it is urgent, write to
-          <a href="mailto:info@truenorth-k12.com">info@truenorth-k12.com</a>.
-        </div>
-
-        <div class="said" id="failed" hidden>
-          <b>That did not send.</b>
-          Please email the details to
-          <a id="fallback" href="mailto:info@truenorth-k12.com">info@truenorth-k12.com</a>
-          and we will pick it up from there.
+          <b>Your email app should have opened.</b>
+          If nothing happened, send the same details straight to
+          <a id="fallback" href="#">our inbox</a> and we will pick it up from there.
         </div>
       </form>
     </div>
@@ -248,47 +237,54 @@
   }
 })();
 (function () {
-  // ---- Where inquiries go. Change the form's action attribute to reroute. ----
+  // ---- Where inquiries go. Change this one line to reroute the form. ----
+  var INBOX = "info@truenorth-k12.com";
+
   var form = document.getElementById("inquiry");
   var said = document.getElementById("said");
-  var failed = document.getElementById("failed");
+  var fallback = document.getElementById("fallback");
   if (!form) return;
 
-  var btn = form.querySelector('button[type="submit"]');
+  function val(id) {
+    var el = document.getElementById(id);
+    return el && el.value ? el.value.trim() : "";
+  }
+
+  function compose() {
+    var rows = [
+      ["Name", val("name")],
+      ["Role", val("role")],
+      ["Email", val("email")],
+      ["Phone", val("phone")],
+      ["School or organization", val("school")],
+      ["City and state", val("place")],
+      ["Where the project stands", val("stage")],
+      ["Target opening", val("opening")],
+      ["Needs help with", val("help")]
+    ].filter(function (r) { return r[1]; });
+
+    var body = "";
+    rows.forEach(function (r) { body += r[0] + ": " + r[1] + "\n"; });
+    body += "\n" + val("message") + "\n";
+
+    var subject = "Campus inquiry: " + (val("school") || val("name") || "True North K-12");
+    return "mailto:" + INBOX +
+           "?subject=" + encodeURIComponent(subject) +
+           "&body=" + encodeURIComponent(body);
+  }
 
   form.addEventListener("submit", function (e) {
+    e.preventDefault();
     if (!form.checkValidity()) {
-      e.preventDefault();
       form.reportValidity();
       var bad = form.querySelector(":invalid");
       if (bad) bad.focus();
       return;
     }
-
-    // No fetch means no interception: let the browser POST the form normally.
-    if (!window.fetch || !window.FormData) return;
-
-    e.preventDefault();
-    if (btn) { btn.disabled = true; btn.style.opacity = ".6"; }
-    if (failed) failed.hidden = true;
-
-    var data = new FormData(form);
-    var school = data.get("school") || data.get("name");
-    if (school) data.set("_subject", "Campus inquiry: " + school);
-
-    fetch(form.action, {
-      method: "POST",
-      body: data,
-      headers: { "Accept": "application/json" }
-    }).then(function (r) {
-      if (!r.ok) throw new Error(r.status);
-      form.reset();
-      if (said) { said.hidden = false; said.scrollIntoView({ block: "nearest" }); }
-      if (btn) { btn.disabled = false; btn.style.opacity = ""; }
-    }).catch(function () {
-      if (failed) { failed.hidden = false; failed.scrollIntoView({ block: "nearest" }); }
-      if (btn) { btn.disabled = false; btn.style.opacity = ""; }
-    });
+    var href = compose();
+    if (fallback) fallback.setAttribute("href", href);
+    if (said) said.hidden = false;
+    window.location.href = href;
   });
 })();
 </script>
